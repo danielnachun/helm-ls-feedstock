@@ -12,9 +12,10 @@ for arg in "\$@"; do
         args+=("\$arg")
     fi
 done
+exec \${CC_FOR_BUILD} "\${args[@]}"
 EOF
 chmod +x ${BUILD_PREFIX}/bin/cc_shim
-export CC=${BUILD_PREFIX}/bin/cc_shim
+export CC_FOR_BUILD=${BUILD_PREFIX}/bin/cc_shim
 fi
 
 go build -o=${PREFIX}/bin/${PKG_NAME} -ldflags="-s -w"
