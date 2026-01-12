@@ -13,6 +13,7 @@ for arg in "\$@"; do
     fi
 done
 EOF
+chmod +x ${BUILD_PREFIX}/bin/cc_shim
 export CC=${BUILD_PREFIX}/bin/cc_shim
 fi
 
